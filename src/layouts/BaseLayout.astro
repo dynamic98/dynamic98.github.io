@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+import { profile } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Junryeol Jeon — Human–AI Interaction Researcher',
+  description = 'Research portfolio of Junryeol Jeon, Ph.D. Candidate at GIST working on human–AI interaction, conversational agents, multimodal interaction, and user modeling.'
+} = Astro.props;
+
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/research/', label: 'Research' },
+  { href: '/publications/', label: 'Publications' },
+  { href: '/projects/', label: 'Projects' }
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f5f5ef" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="shell nav-shell">
+        <a class="wordmark" href="/" aria-label="Junryeol Jeon, home">
+          <span class="wordmark-name">Junryeol Jeon</span>
+          <span class="wordmark-dot" aria-hidden="true"></span>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          {nav.map((item) => (
+            <a class:list={{ active: path.startsWith(item.href) }} href={item.href}>{item.label}</a>
+          ))}
+          <a href={profile.scholar} target="_blank" rel="noreferrer">Scholar ↗</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <a class="footer-email" href={`mailto:${profile.email}`}>{profile.email}</a>
+        </div>
+        <div class="footer-links">
+          <a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href={profile.scholar} target="_blank" rel="noreferrer">Google Scholar ↗</a>
+          <a href={profile.labUrl} target="_blank" rel="noreferrer">SCI Lab ↗</a>
+        </div>
+        <p class="footer-note">© {new Date().getFullYear()} {profile.name}. Built for research, not decoration.</p>
+      </div>
+    </footer>
+  </body>
+</html>

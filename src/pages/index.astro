@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { profile, publications, researchThemes } from '../data/site';
+---
+<BaseLayout>
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <div>
+          <p class="hero-intro"><span class="status-pulse" aria-hidden="true"></span>{profile.role}</p>
+          <h1 class="display">Human–AI interaction, made legible.</h1>
+        </div>
+        <p class="lede">I study how people understand, coordinate with, and build trust in intelligent systems through behavioral, multimodal, and context-aware interfaces.</p>
+        <div class="hero-meta" aria-label="Research areas">
+          <span class="pill">Conversational agents</span>
+          <span class="pill">Gaze behavior</span>
+          <span class="pill">Multimodal interaction</span>
+          <span class="pill">User modeling</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button primary" href="/research/">Explore research</a>
+          <a class="button secondary" href="/publications/">Publications</a>
+        </div>
+      </div>
+      <figure class="hero-portrait">
+        <img src="/images/img-profil.jpg" alt="Portrait of Junryeol Jeon" />
+      </figure>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section class="section">
+    <div class="shell">
+      <div class="split-head">
+        <p class="eyebrow">Selected research</p>
+        <h2 class="section-title">Interfaces that help people read what intelligent systems are doing.</h2>
+      </div>
+      <div class="research-list">
+        {researchThemes.map((theme) => (
+          <a class="research-row" href="/research/">
+            <span class="research-num">{theme.number}</span>
+            <h3>{theme.title}</h3>
+            <p>{theme.summary}</p>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="shell">
+      <div class="split-head">
+        <p class="eyebrow">Current focus</p>
+        <p class="lede">My current work explores conversational coordination in embodied agents and context-aware accessibility for non-speech sound.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card dark">
+          <div>
+            <p class="eyebrow">Embodied conversational agents · 2026</p>
+            <h3>When behavior becomes the interface.</h3>
+            <p>Studying gaze-centered behavioral cues as a conversational coordination interface for listening, processing, speaking, and turn transitions.</p>
+            <a class="card-link" href="/projects/">View project <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="cue-visual" aria-hidden="true"></div>
+        </article>
+        <article class="feature-card">
+          <div>
+            <p class="eyebrow">Accessibility · Multimodal AI</p>
+            <h3>Making sound more interpretable through context.</h3>
+            <p>Exploring LLM-based context-aware representations that support access to non-speech sound for Deaf and hard-of-hearing people.</p>
+            <a class="card-link" href="/research/">Research direction <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="split-head">
+        <p class="eyebrow">Recent publications</p>
+        <div>
+          <h2 class="section-title">Selected work</h2>
+          <p class="lede" style="margin-top:24px">Recent work spans human–AI interaction, gaze, accessibility, and user modeling.</p>
+        </div>
+      </div>
+      <div class="publication-preview">
+        {publications.slice(0, 4).map((pub) => (
+          <a class="pub-preview-row" href={pub.href} target="_blank" rel="noreferrer">
+            <time>{pub.year}</time>
+            <div>
+              <strong>{pub.title}</strong>
+              <span>{pub.venue}</span>
+            </div>
+            <span class="pub-arrow" aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+      <div style="margin-top:30px"><a class="button secondary" href="/publications/">All publications</a></div>
+    </div>
+  </section>
+</BaseLayout>

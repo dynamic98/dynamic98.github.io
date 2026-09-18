@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { profile, publications } from '../data/site';
+---
+<BaseLayout title="Publications — Junryeol Jeon" description="Selected publications by Junryeol Jeon in human–computer interaction, gaze, accessibility, and user modeling.">
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Publications</p>
+      <h1 class="display">Selected work.</h1>
+      <p class="lede">Peer-reviewed work across HCI, multimodal interaction, gaze, intelligent systems, and user modeling. For the most complete citation record, see <a class="external-link" href={profile.scholar} target="_blank" rel="noreferrer">Google Scholar ↗</a>.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="shell pub-list">
+      {publications.map((pub) => (
+        <article class="pub-row">
+          <div class="pub-year">{pub.year}</div>
+          <div>
+            <h2 class="pub-title">{pub.title}</h2>
+            <p class="pub-authors">{pub.authors}</p>
+            <p class="pub-venue">{pub.venue}</p>
+          </div>
+          <div class="pub-side">
+            <span class="pub-tag">{pub.tag}</span>
+            <a class="external-link" href={pub.href} target="_blank" rel="noreferrer">Paper ↗</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
