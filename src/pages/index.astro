@@ -1,6 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { profile, publications, researchThemes } from '../data/site';
+import { profile } from '../data/site';
+import { getCollection } from 'astro:content';
+
+const researchThemes = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const publications = (await getCollection('publications')).sort(
+  (a, b) => b.data.year - a.data.year || a.data.order - b.data.order
+);
 ---
 <BaseLayout>
   <section class="hero">
@@ -38,12 +45,12 @@ import { profile, publications, researchThemes } from '../data/site';
       <div class="research-list">
         {researchThemes.map((theme) => (
           <article class="research-row static-row">
-            <span class="research-num">{theme.number}</span>
-            <h3>{theme.title}</h3>
+            <span class="research-num">{theme.data.number}</span>
+            <h3>{theme.data.title}</h3>
             <div>
-              <p>{theme.detail}</p>
+              <p>{theme.data.detail}</p>
               <div class="keyword-list compact-keywords">
-                {theme.keywords.map((keyword) => <span class="pill">{keyword}</span>)}
+                {theme.data.keywords.map((keyword) => <span class="pill">{keyword}</span>)}
               </div>
             </div>
             <span class="arrow" aria-hidden="true">—</span>
@@ -60,56 +67,30 @@ import { profile, publications, researchThemes } from '../data/site';
       </div>
 
       <div class="project-grid">
-        <article class="project-card">
-          <div class="project-visual"><div class="gaze-art" aria-hidden="true"></div></div>
-          <div class="project-copy">
-            <p class="eyebrow">Current · Conversational agents</p>
-            <h3>Gaze-centered conversational coordination</h3>
-            <p>Exploring whether an embodied agent's gaze behavior can communicate coordination states and turn transitions as part of the agent itself, rather than through a separate status interface.</p>
-            <div class="keyword-list"><span class="pill">Gaze</span><span class="pill">Turn-taking</span><span class="pill">Eye tracking</span></div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual"><div class="gaze-art" aria-hidden="true"></div></div>
-          <div class="project-copy">
-            <p class="eyebrow">CHI 2026 · VR</p>
-            <h3>Gaze-based identification in VR</h3>
-            <p>Investigating how preattentive processing and binocular rivalry can shape visual stimuli for gaze-based identification in immersive environments.</p>
-            <div class="keyword-list"><span class="pill">Gaze biometrics</span><span class="pill">Virtual reality</span><span class="pill">Authentication</span></div>
-            <a class="card-link" href="https://dl.acm.org/doi/full/10.1145/3772318.3791641" target="_blank" rel="noreferrer">Paper ↗</a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual"><img src="/images/cmp-title.jpg" alt="Cross-modal music interface project" /></div>
-          <div class="project-copy">
-            <p class="eyebrow">CHI 2024 · Accessibility</p>
-            <h3>Cross-modal music concepts for DHH people</h3>
-            <p>Supporting music appreciation by letting Deaf and hard-of-hearing people explore and customize relationships between music, visuals, and vibration.</p>
-            <div class="keyword-list"><span class="pill">Accessibility</span><span class="pill">Music</span><span class="pill">Multimodal</span></div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual"><div class="gaze-art" aria-hidden="true"></div></div>
-          <div class="project-copy">
-            <p class="eyebrow">Scientific Data 2025 · Gaze</p>
-            <h3>Pre-AttentiveGaze</h3>
-            <p>A gaze-based authentication dataset built around momentary visual interactions, with an emphasis on gaze signals under brief exposure.</p>
-            <div class="keyword-list"><span class="pill">Gaze</span><span class="pill">Authentication</span><span class="pill">Dataset</span></div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual"><img src="/images/game-title.png" alt="Human-like game agent project" /></div>
-          <div class="project-copy">
-            <p class="eyebrow">Intelligent agents · Earlier work</p>
-            <h3>Human-like game agent generation</h3>
-            <p>Investigating learning-based game agents that reproduce human play patterns instead of optimizing only for task performance.</p>
-            <div class="keyword-list"><span class="pill">Reinforcement learning</span><span class="pill">Game agents</span><span class="pill">Behavior modeling</span></div>
-          </div>
-        </article>
+        {projects.map((project) => (
+          <article class="project-card">
+            <div class="project-visual">
+              {project.data.image ? (
+                <img src={project.data.image} alt={project.data.imageAlt ?? project.data.title} />
+              ) : project.data.art === 'gaze' ? (
+                <div class="gaze-art" aria-hidden="true"></div>
+              ) : null}
+            </div>
+            <div class="project-copy">
+              <p class="eyebrow">{project.data.eyebrow}</p>
+              <h3>{project.data.title}</h3>
+              <p>{project.data.description}</p>
+              <div class="keyword-list">
+                {project.data.tags.map((tag) => <span class="pill">{tag}</span>)}
+              </div>
+              {project.data.href && (
+                <a class="card-link" href={project.data.href} target="_blank" rel="noreferrer">
+                  {project.data.linkLabel ?? 'View ↗'}
+                </a>
+              )}
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -123,15 +104,15 @@ import { profile, publications, researchThemes } from '../data/site';
       <div class="pub-list">
         {publications.map((pub) => (
           <article class="pub-row">
-            <div class="pub-year">{pub.year}</div>
+            <div class="pub-year">{pub.data.year}</div>
             <div>
-              <h3 class="pub-title">{pub.title}</h3>
-              <p class="pub-authors">{pub.authors}</p>
-              <p class="pub-venue">{pub.venue}</p>
+              <h3 class="pub-title">{pub.data.title}</h3>
+              <p class="pub-authors">{pub.data.authors}</p>
+              <p class="pub-venue">{pub.data.venue}</p>
             </div>
             <div class="pub-side">
-              <span class="pub-tag">{pub.tag}</span>
-              <a class="external-link" href={pub.href} target="_blank" rel="noreferrer">Paper ↗</a>
+              <span class="pub-tag">{pub.data.tag}</span>
+              <a class="external-link" href={pub.data.href} target="_blank" rel="noreferrer">Paper ↗</a>
             </div>
           </article>
         ))}
