@@ -1,11 +1,16 @@
 ---
-order: 4
-eyebrow: "Scientific Data 2025 · Gaze"
+order: 2
+group: "phd"
+area: "RQ1–RQ2"
+stage: "Design cognition-grounded stimuli"
+eyebrow: "Scientific Data 2025 · RQ1–RQ2"
 title: "Pre-AttentiveGaze"
-description: "A gaze-based authentication dataset built around momentary visual interactions, with an emphasis on gaze signals under brief exposure."
+description: "Designing momentary visual stimuli to elicit preattentive gaze responses and studying whether very short gaze windows preserve individual discriminability."
 tags:
-  - "Gaze"
-  - "Authentication"
+  - "Preattentive processing"
+  - "Gaze biometrics"
   - "Dataset"
-art: "gaze"
+art: "preattentive"
+href: "https://doi.org/10.1038/s41597-025-04538-3"
+linkLabel: "Paper ↗"
 ---

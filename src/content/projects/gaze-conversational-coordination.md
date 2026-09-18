@@ -1,11 +1,14 @@
 ---
-order: 1
-eyebrow: "Current · Conversational agents"
-title: "Gaze-centered conversational coordination"
-description: "Exploring whether an embodied agent's gaze behavior can communicate coordination states and turn transitions as part of the agent itself, rather than through a separate status interface."
+order: 5
+group: "phd"
+area: "RQ3 · Coordination"
+stage: "Design coordination behavior"
+eyebrow: "RQ3 · Coordination · Current"
+title: "Gaze-Based Coordination in Embodied Conversational Agents"
+description: "Designing gaze-centered agent behaviors that communicate conversational coordination states and turn transitions as part of the embodied interaction itself."
 tags:
-  - "Gaze"
+  - "Conversational agents"
+  - "Gaze behavior"
   - "Turn-taking"
-  - "Eye tracking"
-art: "gaze"
+art: "coordination"
 ---

@@ -7,7 +7,10 @@ const research = defineCollection({
   schema: z.object({
     order: z.number(),
     number: z.string(),
+    rq: z.string(),
+    action: z.string(),
     title: z.string(),
+    question: z.string(),
     detail: z.string(),
     keywords: z.array(z.string())
   })
@@ -17,13 +20,16 @@ const projects = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
   schema: z.object({
     order: z.number(),
+    group: z.enum(['phd', 'other']),
+    area: z.string().optional(),
+    stage: z.string().optional(),
     eyebrow: z.string(),
     title: z.string(),
     description: z.string(),
     tags: z.array(z.string()),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
-    art: z.enum(['gaze']).optional(),
+    art: z.enum(['perception', 'preattentive', 'vr', 'model', 'coordination', 'analysis', 'neutral']).optional(),
     href: z.string().url().optional(),
     linkLabel: z.string().optional()
   })
@@ -38,7 +44,8 @@ const publications = defineCollection({
     authors: z.string(),
     venue: z.string(),
     href: z.string().url(),
-    tag: z.string()
+    tag: z.string(),
+    thesis: z.boolean().optional()
   })
 });
 
