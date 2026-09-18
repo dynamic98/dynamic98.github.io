@@ -11,6 +11,14 @@ export const profile = {
 
 export const publications = [
   {
+    year: 2026,
+    title: 'Understanding Gaze-Based Identification in VR Through Preattentive Processing and Binocular Rivalry',
+    authors: 'Junryeol Jeon, Yeo-Gyeong Noh, JinYoung Yoo, Jin-Hyuk Hong',
+    venue: 'CHI 2026 · Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems, pp. 1–23',
+    href: 'https://dl.acm.org/doi/full/10.1145/3772318.3791641',
+    tag: 'Gaze · VR · Authentication'
+  },
+  {
     year: 2025,
     title: 'BIASsist: Empowering News Readers via Bias Identification, Explanation, and Neutralization',
     authors: 'Yeo-Gyeong Noh, MinJu Han, Junryeol Jeon, Jin-Hyuk Hong',
