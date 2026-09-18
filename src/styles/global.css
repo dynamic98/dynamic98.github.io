@@ -263,3 +263,52 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outlin
   .hero-copy { padding-bottom: 8px; }
   .hero-portrait { max-height: 440px; }
 }
+
+
+/* One-page homepage navigation */
+.anchor-section {
+  scroll-margin-top: 76px;
+}
+
+.section-head-simple {
+  margin-bottom: 32px;
+}
+
+.section-head-simple .section-title {
+  max-width: 620px;
+}
+
+.static-row {
+  cursor: default;
+}
+
+.static-row:hover {
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.compact-keywords {
+  margin-top: 14px;
+}
+
+.project-copy h3 {
+  margin: 5px 0 14px;
+  font-size: clamp(1.32rem, 2vw, 1.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.028em;
+}
+
+.scholar-row {
+  margin-top: 28px;
+}
+
+@media (max-width: 680px) {
+  .anchor-section {
+    scroll-margin-top: 18px;
+  }
+
+  .section-head-simple {
+    margin-bottom: 24px;
+  }
+}
