@@ -1,6 +1,5 @@
 ---
-order: 3
-group: "other"
+order: 8
 eyebrow: "Intelligent agents · Earlier work"
 title: "Human-like game agent generation"
 description: "Investigating learning-based game agents that reproduce human play patterns instead of optimizing only for task performance."

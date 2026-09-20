@@ -1,14 +1,12 @@
 ---
 order: 2
 number: "02"
-rq: "RQ2 · Biometrics / User Modeling"
-action: "Model"
-title: "Biometrics & User Modeling"
-question: "How can gaze dynamics be modeled to reveal individual traits and latent user states?"
-detail: "I model short- and long-range gaze dynamics as behavioral evidence of individual differences, visual strategies, and user-specific patterns."
+title: "User Modeling"
+question: "How can multimodal behavior reveal individual differences, user states, and interaction strategies?"
+detail: "I model gaze and interaction behavior to understand user-specific patterns, temporal dynamics, and latent states that can support more adaptive intelligent systems."
 keywords:
-  - "Gaze biometrics"
-  - "Gaze dynamics"
-  - "Temporal modeling"
   - "User modeling"
+  - "Gaze dynamics"
+  - "Behavior modeling"
+  - "Multimodal data"
 ---

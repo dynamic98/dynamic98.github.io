@@ -1,6 +1,5 @@
 ---
-order: 2
-group: "other"
+order: 7
 eyebrow: "CHI 2025 · Human–AI interaction"
 title: "BIASsist"
 description: "Exploring AI support for news readers through bias identification, explanation, and neutralization."

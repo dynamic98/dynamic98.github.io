@@ -1,14 +1,12 @@
 ---
 order: 5
-group: "phd"
-area: "RQ3 · Coordination"
-stage: "Design coordination behavior"
-eyebrow: "RQ3 · Coordination · Current"
+eyebrow: "Conversational agents · Gaze"
 title: "Gaze-Based Coordination in Embodied Conversational Agents"
 description: "Designing gaze-centered agent behaviors that communicate conversational coordination states and turn transitions as part of the embodied interaction itself."
 tags:
   - "Conversational agents"
   - "Gaze behavior"
   - "Turn-taking"
-art: "coordination"
+image: "/images/projects/conversational-coordination.webp"
+imageAlt: "Illustration of coordination uncertainty between a conversational agent and a user"
 ---

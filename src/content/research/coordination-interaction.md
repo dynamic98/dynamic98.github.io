@@ -1,14 +1,12 @@
 ---
 order: 3
 number: "03"
-rq: "RQ3 · Coordination / Interaction"
-action: "Design"
-title: "Coordination & Interaction"
-question: "How can gaze be designed as an interaction modality that supports human–AI coordination?"
-detail: "I design gaze-centered behaviors for embodied agents so that listening, processing, and turn transitions become more legible during conversation."
+title: "Human–AI Interaction"
+question: "How can user understanding inform clearer, more accessible, and more natural intelligent interactions?"
+detail: "I translate behavioral and perceptual insights into conversational agents, accessibility interfaces, and AI-assisted systems that communicate more effectively with people."
 keywords:
+  - "Human–AI interaction"
   - "Conversational agents"
-  - "Gaze behavior"
-  - "Turn-taking"
-  - "Embodied interaction"
+  - "Accessibility"
+  - "Intelligent systems"
 ---

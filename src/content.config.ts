@@ -7,8 +7,6 @@ const research = defineCollection({
   schema: z.object({
     order: z.number(),
     number: z.string(),
-    rq: z.string(),
-    action: z.string(),
     title: z.string(),
     question: z.string(),
     detail: z.string(),
@@ -20,9 +18,6 @@ const projects = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
   schema: z.object({
     order: z.number(),
-    group: z.enum(['phd', 'other']),
-    area: z.string().optional(),
-    stage: z.string().optional(),
     eyebrow: z.string(),
     title: z.string(),
     description: z.string(),

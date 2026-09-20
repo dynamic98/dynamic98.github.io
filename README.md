@@ -1,6 +1,6 @@
 # Junryeol Jeon — Research Portfolio
 
-The site is content-driven. Routine research updates should only require Markdown files in `src/content/` and images in `assets/images/`.
+This site is content-driven. Routine updates should only require Markdown files in `src/content/` and images in `assets/images/`.
 
 ## Preview locally
 
@@ -10,102 +10,52 @@ npm install
 npm run dev -- --host 0.0.0.0
 ```
 
-Open port `4321` in Codespaces.
-
-## Site structure
+## Content structure
 
 ```
 src/content/
-├── research/       # the three PhD research axes
-├── projects/       # PhD research + other research
+├── research/       # broad research areas
+├── projects/       # all research projects in one list
 └── publications/   # publication entries
 
 assets/images/
-├── img-profil.jpg  # profile photo
-└── projects/       # recommended folder for project images
+├── img-profil.jpg
+└── projects/
 ```
 
-## Edit the PhD research axes
-
-Each file in `src/content/research/` controls one part of the Perception → Biometrics → Coordination research arc.
-
-Important fields:
-
-```yaml
-order: 1
-number: "01"
-rq: "RQ1 · Perception / Visual Attention"
-action: "Elicit"
-title: "Perception & Visual Attention"
-question: "..."
-detail: "..."
-keywords:
-  - "Visual attention"
-```
-
-## Add a PhD project
+## Add a project
 
 Create a Markdown file in `src/content/projects/`:
 
 ```md
 ---
-order: 6
-group: "phd"
-area: "RQ3 · Coordination"
-stage: "Design coordination behavior"
-eyebrow: "RQ3 · Coordination"
+order: 9
+eyebrow: "Conversational agents · Multimodal"
 title: "Project title"
-description: "One or two sentences."
+description: "One or two sentences describing the project."
 tags:
-  - "Gaze"
-  - "Human–AI interaction"
-image: "/images/projects/project-name.jpg"
-imageAlt: "Project image description"
+  - "Multimodal interaction"
+  - "User modeling"
+image: "/images/projects/project-name.webp"
+imageAlt: "Short description of the project image"
 href: "https://doi.org/..."
 linkLabel: "Paper ↗"
 ---
 ```
 
-`order` controls the sequence within the PhD research roadmap.
-
-## Add other research
-
-Use the same format but set:
-
-```yaml
-group: "other"
-```
-
-Other research appears in a separate section below the PhD sequence.
+The `order` field controls display order.
 
 ## Project images
 
-Put images in:
-
-```
-assets/images/projects/
-```
-
-and reference them like:
+Put images in `assets/images/projects/` and reference them with a web path:
 
 ```yaml
-image: "/images/projects/project-name.jpg"
+image: "/images/projects/project-name.webp"
 ```
 
-To update an image later, replace the file while keeping the same filename. No code or Markdown change is needed.
+To replace an image later, keep the same filename and replace the file. No Astro code needs to change.
 
-If no image is ready, omit `image` and use one of the built-in placeholders:
-
-```yaml
-art: "perception"
-art: "preattentive"
-art: "vr"
-art: "model"
-art: "coordination"
-art: "analysis"
-```
-
-Once a real image is available, replace the `art:` line with an `image:` line.
+The gaze project cards currently use figures extracted and cropped from the PhD proposal presentation.
 
 ## Add a publication
 
@@ -119,28 +69,21 @@ title: "Paper title"
 authors: "Author A, Junryeol Jeon, Author B"
 venue: "CHI 2027"
 href: "https://doi.org/..."
-tag: "Gaze · Interaction"
-thesis: true
+tag: "Multimodal Interaction"
 ---
 ```
 
-Set `thesis: true` only when you want the publication labeled as part of the PhD research line. Publications are automatically sorted by year and then by `order`.
+Publications are sorted automatically by year and then by `order`.
 
 ## Profile image
 
-Replace:
-
-```
-assets/images/img-profil.jpg
-```
-
-with a new image using the same filename.
+Replace `assets/images/img-profil.jpg` with a new image using the same filename.
 
 ## Design files
 
-Normal updates should not require these files:
+Normal content updates should not require editing:
 
-- Homepage layout: `src/pages/index.astro`
-- Header/footer: `src/layouts/BaseLayout.astro`
-- Visual styling: `src/styles/global.css`
-- Content schemas: `src/content.config.ts`
+- `src/pages/index.astro`
+- `src/layouts/BaseLayout.astro`
+- `src/styles/global.css`
+- `src/content.config.ts`
