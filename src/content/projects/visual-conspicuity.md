@@ -7,6 +7,6 @@ tags:
   - "Visual perception"
   - "Wayfinding"
   - "Gaze tracking"
-image: "/images/projects/visual-conspicuity.webp"
-imageAlt: "Conceptual diagram linking visual design, gaze response, and conspicuity modeling"
+image: "/images/visibility-title.png"
+imageAlt: "Visual conspicuity and wayfinding research"
 ---
