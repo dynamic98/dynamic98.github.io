@@ -133,7 +133,9 @@ const publications = (await getCollection('publications')).sort(
             </div>
             <div class="pub-side">
               <span class="pub-tag">{pub.data.tag}</span>
-              <a class="external-link" href={pub.data.href} target="_blank" rel="noreferrer">Paper ↗</a>
+              {pub.data.href && (
+                <a class="external-link" href={pub.data.href} target="_blank" rel="noreferrer">Paper ↗</a>
+              )}
             </div>
           </article>
         ))}

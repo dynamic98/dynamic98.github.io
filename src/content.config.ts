@@ -38,7 +38,7 @@ const publications = defineCollection({
     title: z.string(),
     authors: z.string(),
     venue: z.string(),
-    href: z.string().url(),
+    href: z.string().url().optional(),
     tag: z.string(),
     note: z.string().optional(),
     thesis: z.boolean().optional()
