@@ -1,14 +1,12 @@
 ---
-order: 6
-eyebrow: "CHI 2024 · Accessibility"
-title: "Cross-modal music concepts for DHH people"
-description: "Supporting music appreciation by letting Deaf and hard-of-hearing people explore and customize relationships between music, visuals, and vibration."
+order: 3
+eyebrow: "Accessibility · Multimodal interaction"
+title: "Accessible Multimodal Interaction"
+description: "Exploring cross-modal representations that help Deaf and hard-of-hearing people experience and customize relationships among music, visuals, and vibration."
 tags:
   - "Accessibility"
   - "Music"
-  - "Multimodal"
+  - "Multimodal interaction"
 image: "/images/cmp-title.jpg"
-imageAlt: "Cross-modal music interface project"
-href: "https://doi.org/10.1145/3613904.3642665"
-linkLabel: "Paper ↗"
+imageAlt: "Cross-modal music interface for Deaf and hard-of-hearing people"
 ---

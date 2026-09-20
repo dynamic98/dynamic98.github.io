@@ -1,8 +1,8 @@
 ---
-order: 5
+order: 1
 eyebrow: "Conversational agents · Gaze"
-title: "Gaze-Based Coordination in Embodied Conversational Agents"
-description: "Designing gaze-centered agent behaviors that communicate conversational coordination states and turn transitions as part of the embodied interaction itself."
+title: "Gaze-Based Conversational Coordination"
+description: "Designing gaze-centered behaviors for embodied conversational agents so that listening, processing, and turn transitions become easier to understand during spoken interaction."
 tags:
   - "Conversational agents"
   - "Gaze behavior"

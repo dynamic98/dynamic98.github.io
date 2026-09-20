@@ -1,12 +1,12 @@
 ---
-order: 1
-eyebrow: "Perception · Gaze"
-title: "Visual Conspicuity & Gaze Behavior"
-description: "Examining how integrated design features and task-guided gaze relate to visual conspicuity, grounded in visual attention and search behavior."
+order: 4
+eyebrow: "Visual perception · Wayfinding"
+title: "Visual Conspicuity & Wayfinding"
+description: "Studying how visual design, environmental context, and gaze behavior shape the conspicuity and usability of wayfinding signs."
 tags:
-  - "Visual attention"
-  - "Conspicuity"
-  - "Gaze behavior"
+  - "Visual perception"
+  - "Wayfinding"
+  - "Gaze tracking"
 image: "/images/projects/visual-conspicuity.webp"
 imageAlt: "Conceptual diagram linking visual design, gaze response, and conspicuity modeling"
 ---

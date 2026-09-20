@@ -1,12 +1,12 @@
 ---
-order: 8
-eyebrow: "Intelligent agents · Earlier work"
-title: "Human-like game agent generation"
-description: "Investigating learning-based game agents that reproduce human play patterns instead of optimizing only for task performance."
+order: 5
+eyebrow: "Intelligent agents · Behavior modeling"
+title: "Human-like Game Agents"
+description: "Investigating learning-based game agents that reproduce human play styles and behavioral patterns rather than optimizing only for task performance."
 tags:
   - "Reinforcement learning"
   - "Game agents"
   - "Behavior modeling"
 image: "/images/game-title.png"
-imageAlt: "Human-like game agent project"
+imageAlt: "Human-like game agent research"
 ---

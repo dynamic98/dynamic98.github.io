@@ -1175,3 +1175,126 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outlin
     padding: 8px;
   }
 }
+
+
+/* Research vision and project-line polish */
+.hero-portrait {
+  justify-self: center;
+  width: 100%;
+}
+
+.hero-portrait img {
+  object-position: 50% 50%;
+}
+
+.vision-section {
+  padding: 48px 0;
+  background: var(--ink);
+  color: white;
+}
+
+.vision-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, .75fr) minmax(0, 1.25fr);
+  gap: 56px;
+  align-items: start;
+}
+
+.vision-section .eyebrow {
+  color: #b9bbb4;
+}
+
+.vision-title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  font-weight: 640;
+}
+
+.vision-statement {
+  margin: 0 0 16px;
+  max-width: 720px;
+  font-size: clamp(1.2rem, 2.1vw, 1.65rem);
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  font-weight: 580;
+}
+
+.vision-copy {
+  margin: 0;
+  max-width: 720px;
+  color: #c1c4bb;
+  font-size: .96rem;
+  line-height: 1.7;
+}
+
+.vision-modalities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.vision-modalities span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 3px 10px;
+  border: 1px solid #41443d;
+  border-radius: 999px;
+  color: #d9dbd5;
+  font-size: .76rem;
+  font-weight: 620;
+}
+
+.unified-project-grid .project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.unified-project-grid .project-copy {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.unified-project-grid .keyword-list {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+@media (max-width: 900px) {
+  .hero-portrait {
+    margin-inline: auto;
+  }
+
+  .vision-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 680px) {
+  .vision-section {
+    padding: 38px 0;
+  }
+
+  .vision-grid {
+    gap: 18px;
+  }
+
+  .vision-title {
+    font-size: 2rem;
+  }
+
+  .vision-statement {
+    font-size: 1.12rem;
+    line-height: 1.5;
+  }
+
+  .vision-copy {
+    font-size: .9rem;
+    line-height: 1.62;
+  }
+}

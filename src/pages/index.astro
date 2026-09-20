@@ -35,7 +35,25 @@ const publications = (await getCollection('publications')).sort(
     </div>
   </section>
 
-  <hr class="rule" />
+  <section class="vision-section" aria-labelledby="vision-title">
+    <div class="shell vision-grid">
+      <div>
+        <p class="eyebrow">Research Vision</p>
+        <h2 class="vision-title" id="vision-title">Modality connects.</h2>
+      </div>
+      <div>
+        <p class="vision-statement">Modality is a relational surface revealing latent states.</p>
+        <p class="vision-copy">I view modalities as more than input and output channels. They connect people, systems, and contexts while providing behavioral evidence of states such as attention, intention, affect, understanding, and identity.</p>
+        <div class="vision-modalities" aria-label="Modalities">
+          <span>Gaze</span>
+          <span>Speech</span>
+          <span>Music</span>
+          <span>Text</span>
+          <span>Haptics</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="section anchor-section" id="research">
     <div class="shell">
@@ -68,9 +86,9 @@ const publications = (await getCollection('publications')).sort(
       <div class="section-head-simple section-head-with-copy">
         <div>
           <p class="eyebrow">Projects</p>
-          <h2 class="section-title">Research across people, signals, and intelligent systems</h2>
+          <h2 class="section-title">Selected research lines</h2>
         </div>
-        <p class="section-copy">Projects spanning gaze, multimodal interaction, user modeling, accessibility, conversational agents, and AI-assisted interfaces.</p>
+        <p class="section-copy">Broader research lines rather than individual papers. Detailed publication records are listed separately below.</p>
       </div>
 
       <div class="project-grid unified-project-grid">
@@ -90,11 +108,6 @@ const publications = (await getCollection('publications')).sort(
               <div class="keyword-list compact-keywords">
                 {project.data.tags.map((tag) => <span class="pill">{tag}</span>)}
               </div>
-              {project.data.href && (
-                <a class="card-link" href={project.data.href} target="_blank" rel="noreferrer">
-                  {project.data.linkLabel ?? 'View ↗'}
-                </a>
-              )}
             </div>
           </article>
         ))}
