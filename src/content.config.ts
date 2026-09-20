@@ -40,6 +40,7 @@ const publications = defineCollection({
     venue: z.string(),
     href: z.string().url(),
     tag: z.string(),
+    note: z.string().optional(),
     thesis: z.boolean().optional()
   })
 });
