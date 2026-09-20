@@ -90,8 +90,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outlin
   justify-content: space-between;
   gap: 28px;
 }
-.wordmark { display: inline-flex; align-items: center; gap: 8px; font-weight: 760; letter-spacing: -0.025em; }
-.wordmark-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--accent); }
+.wordmark { display: inline-flex; align-items: center; gap: 8px; font-weight: 760; letter-spacing: -0.025em; white-space: nowrap; }
+.wordmark-short { display: none; }
+.wordmark-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--accent); flex: 0 0 auto; }
+.nav-label-mobile { display: none; }
 .main-nav { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: 0.9rem; font-weight: 570; }
 .main-nav a { position: relative; transition: color 180ms ease; }
 .main-nav a:hover, .main-nav a.active { color: var(--ink); }
@@ -763,5 +765,374 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outlin
 
   .pub-labels {
     align-items: flex-start;
+  }
+}
+
+
+/* Mobile-first polish */
+@media (max-width: 680px) {
+  body {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .shell {
+    width: min(calc(100% - 32px), var(--max));
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    background: color-mix(in srgb, var(--bg) 96%, transparent);
+    backdrop-filter: blur(14px);
+  }
+
+  .nav-shell {
+    min-height: 54px;
+    padding: 0;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .wordmark {
+    gap: 6px;
+    flex: 0 0 auto;
+  }
+
+  .wordmark-name {
+    display: none;
+  }
+
+  .wordmark-short {
+    display: inline;
+    font-size: .92rem;
+  }
+
+  .wordmark-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .main-nav {
+    margin-left: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 14px;
+    min-width: 0;
+    font-size: .78rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .main-nav a {
+    flex: 0 0 auto;
+  }
+
+  .main-nav a:last-child {
+    display: none;
+  }
+
+  .nav-label {
+    display: none;
+  }
+
+  .nav-label-mobile {
+    display: inline;
+  }
+
+  .hero {
+    padding: 30px 0 48px;
+  }
+
+  .hero-grid {
+    gap: 28px;
+    align-items: start;
+  }
+
+  .hero-copy {
+    gap: 20px;
+  }
+
+  .hero-intro {
+    margin: 0;
+    gap: 8px;
+    font-size: .86rem;
+  }
+
+  .status-pulse {
+    width: 7px;
+    height: 7px;
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+
+  .hero .display {
+    font-size: clamp(2.15rem, 10vw, 3rem);
+    line-height: 1.04;
+    letter-spacing: -0.042em;
+  }
+
+  .lede {
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .hero-meta {
+    gap: 7px;
+  }
+
+  .pill {
+    min-height: 27px;
+    padding: 3px 9px;
+    font-size: .73rem;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+
+  .button {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: .86rem;
+  }
+
+  .hero-portrait {
+    order: 0;
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+  }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  .anchor-section {
+    scroll-margin-top: 54px;
+  }
+
+  .section-head-simple {
+    margin-bottom: 24px;
+  }
+
+  .section-head-with-copy {
+    gap: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(1.65rem, 7vw, 2.1rem);
+    line-height: 1.12;
+  }
+
+  .section-copy {
+    font-size: .92rem;
+    line-height: 1.62;
+  }
+
+  .research-arc-card {
+    padding: 22px 0 24px;
+  }
+
+  .research-card-top {
+    margin-bottom: 18px;
+  }
+
+  .research-arc-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .research-question {
+    margin-bottom: 12px;
+    font-size: .93rem;
+    line-height: 1.52;
+  }
+
+  .research-detail {
+    font-size: .88rem;
+    line-height: 1.62;
+  }
+
+  .approach-strip {
+    margin-top: 24px;
+    border-radius: 12px;
+  }
+
+  .approach-title,
+  .approach-step {
+    padding: 17px 18px;
+  }
+
+  .approach-step {
+    display: grid;
+    grid-template-columns: 32px 72px 1fr;
+    gap: 8px;
+    align-items: start;
+  }
+
+  .approach-step span,
+  .approach-step strong {
+    margin: 0;
+  }
+
+  .approach-step p {
+    font-size: .82rem;
+    line-height: 1.48;
+  }
+
+  .thesis-project-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 22px 0 26px;
+  }
+
+  .project-stage-col {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .project-stage {
+    max-width: 72%;
+    text-align: right;
+    font-size: .74rem;
+  }
+
+  .thesis-project-visual {
+    aspect-ratio: 16 / 8.5;
+    border-radius: 10px;
+  }
+
+  .thesis-project-copy h3 {
+    font-size: 1.3rem;
+    line-height: 1.2;
+  }
+
+  .thesis-project-copy > p:not(.eyebrow) {
+    font-size: .9rem;
+    line-height: 1.6;
+  }
+
+  .other-research {
+    margin-top: 48px;
+  }
+
+  .subsection-head {
+    margin-bottom: 18px;
+  }
+
+  .subsection-head h3 {
+    font-size: 1.45rem;
+  }
+
+  .other-project-grid {
+    gap: 14px;
+  }
+
+  .compact-project-card {
+    border-radius: 14px;
+  }
+
+  .project-visual {
+    aspect-ratio: 16 / 8.7;
+  }
+
+  .compact-project-card .project-copy,
+  .project-copy {
+    padding: 18px;
+  }
+
+  .project-copy h3,
+  .compact-project-card .project-copy h3 {
+    font-size: 1.2rem;
+    line-height: 1.24;
+  }
+
+  .pub-list {
+    border-top: 1px solid var(--line);
+  }
+
+  .pub-row {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    padding: 20px 0 22px;
+  }
+
+  .pub-year {
+    font-size: .78rem;
+  }
+
+  .pub-title {
+    margin-bottom: 7px;
+    font-size: 1.05rem;
+    line-height: 1.38;
+  }
+
+  .pub-authors,
+  .pub-venue {
+    font-size: .86rem;
+    line-height: 1.55;
+  }
+
+  .pub-side {
+    grid-column: 1;
+    margin-top: 8px;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .pub-labels {
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .pub-tag {
+    white-space: normal;
+    font-size: .72rem;
+    line-height: 1.3;
+  }
+
+  .external-link,
+  .card-link {
+    font-size: .84rem;
+  }
+
+  .site-footer {
+    padding: 42px 0 28px;
+  }
+
+  .footer-email {
+    font-size: 1.15rem;
+  }
+
+  .footer-links {
+    font-size: .9rem;
+  }
+
+  .footer-note {
+    margin-top: 18px;
+    padding-top: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-shell {
+    gap: 10px;
+  }
+
+  .main-nav {
+    gap: 10px;
+    font-size: .74rem;
+  }
+
+  .wordmark-short {
+    font-size: .84rem;
   }
 }
