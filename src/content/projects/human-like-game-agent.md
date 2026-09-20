@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 3
 eyebrow: "Intelligent agents · Behavior modeling"
 title: "Human-like Game Agents"
 description: "Investigating learning-based game agents that reproduce human play styles and behavioral patterns rather than optimizing only for task performance."
