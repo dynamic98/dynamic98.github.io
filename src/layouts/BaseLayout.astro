@@ -38,10 +38,16 @@ const nav = [
       <div class="shell nav-shell">
         <a class="wordmark" href="/" aria-label="Junryeol Jeon, home">
           <span class="wordmark-name">Junryeol Jeon</span>
+          <span class="wordmark-short">JJ</span>
           <span class="wordmark-dot" aria-hidden="true"></span>
         </a>
         <nav class="main-nav" aria-label="Primary navigation">
-          {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+          {nav.map((item) => (
+            <a href={item.href}>
+              <span class="nav-label">{item.label}</span>
+              <span class="nav-label-mobile">{item.label === 'Publications' ? 'Pubs' : item.label}</span>
+            </a>
+          ))}
           <a href={profile.scholar} target="_blank" rel="noreferrer">Scholar ↗</a>
         </nav>
       </div>
