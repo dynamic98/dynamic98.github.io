@@ -1,0 +1,201 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { profile } from '../data/site';
+import { getCollection } from 'astro:content';
+
+const researchThemes = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const phdProjects = projects.filter((project) => project.data.group === 'phd');
+const otherProjects = projects.filter((project) => project.data.group === 'other');
+const publications = (await getCollection('publications')).sort(
+  (a, b) => b.data.year - a.data.year || a.data.order - b.data.order
+);
+---
+<BaseLayout>
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <div>
+          <p class="hero-intro"><span class="status-pulse" aria-hidden="true"></span>{profile.role}</p>
+          <h1 class="display">Understanding and Designing Gaze-Based Interaction</h1>
+        </div>
+        <p class="lede">I study gaze as a cognitively grounded interaction modality—from perception and visual attention, through biometrics and user modeling, to human–AI coordination.</p>
+        <div class="hero-meta" aria-label="Research areas">
+          <span class="pill">Perception</span>
+          <span class="pill">Gaze biometrics</span>
+          <span class="pill">User modeling</span>
+          <span class="pill">Human–AI coordination</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button primary" href="#research">Research</a>
+          <a class="button secondary" href="#projects">PhD research</a>
+        </div>
+      </div>
+      <figure class="hero-portrait">
+        <img src="/images/img-profil.jpg" alt="Portrait of Junryeol Jeon" />
+      </figure>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section class="section anchor-section" id="research">
+    <div class="shell">
+      <div class="section-head-simple section-head-with-copy">
+        <div>
+          <p class="eyebrow">Research</p>
+          <h2 class="section-title">Gaze across perception, biometrics, and coordination</h2>
+        </div>
+        <p class="section-copy">My PhD work follows gaze from how it is elicited by perceptual mechanisms, to what its dynamics reveal about people, to how gaze can support interaction with intelligent agents.</p>
+      </div>
+
+      <div class="research-arc">
+        {researchThemes.map((theme) => (
+          <article class="research-arc-card">
+            <div class="research-card-top">
+              <span class="research-num">{theme.data.number}</span>
+              <span class="research-action">{theme.data.action}</span>
+            </div>
+            <p class="rq-label">{theme.data.rq}</p>
+            <h3>{theme.data.title}</h3>
+            <p class="research-question">{theme.data.question}</p>
+            <p class="research-detail">{theme.data.detail}</p>
+            <div class="keyword-list compact-keywords">
+              {theme.data.keywords.map((keyword) => <span class="pill">{keyword}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="approach-strip" aria-label="Research approach">
+        <div class="approach-title">
+          <p class="eyebrow">Research approach</p>
+          <strong>Observe → Model → Design</strong>
+        </div>
+        <div class="approach-step">
+          <span>01</span>
+          <strong>Observe</strong>
+          <p>Study how cognition, perceptual mechanisms, and context shape gaze behavior.</p>
+        </div>
+        <div class="approach-step">
+          <span>02</span>
+          <strong>Model</strong>
+          <p>Represent gaze dynamics as evidence of individual behavior and user state.</p>
+        </div>
+        <div class="approach-step">
+          <span>03</span>
+          <strong>Design</strong>
+          <p>Translate gaze understanding into intelligent interaction and coordination cues.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section anchor-section" id="projects">
+    <div class="shell">
+      <div class="section-head-simple section-head-with-copy">
+        <div>
+          <p class="eyebrow">PhD Research</p>
+          <h2 class="section-title">From understanding gaze to designing with it</h2>
+        </div>
+        <p class="section-copy">The studies form a progression: observing perceptual salience, designing cognition-grounded stimuli, extending gaze biometrics to VR, modeling gaze dynamics, and designing gaze-based conversational coordination.</p>
+      </div>
+
+      <div class="thesis-project-list">
+        {phdProjects.map((project, index) => (
+          <article class="thesis-project-row">
+            <div class="project-stage-col">
+              <span class="project-seq">{String(index + 1).padStart(2, '0')}</span>
+              {project.data.stage && <span class="project-stage">{project.data.stage}</span>}
+            </div>
+            <div class="thesis-project-visual">
+              {project.data.image ? (
+                <img src={project.data.image} alt={project.data.imageAlt ?? project.data.title} />
+              ) : (
+                <div class={`project-art art-${project.data.art ?? 'neutral'}`} aria-hidden="true"></div>
+              )}
+            </div>
+            <div class="thesis-project-copy">
+              <p class="eyebrow">{project.data.eyebrow}</p>
+              <h3>{project.data.title}</h3>
+              <p>{project.data.description}</p>
+              <div class="keyword-list compact-keywords">
+                {project.data.tags.map((tag) => <span class="pill">{tag}</span>)}
+              </div>
+              {project.data.href && (
+                <a class="card-link" href={project.data.href} target="_blank" rel="noreferrer">
+                  {project.data.linkLabel ?? 'View ↗'}
+                </a>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="other-research">
+        <div class="subsection-head">
+          <p class="eyebrow">Other Research</p>
+          <h3>Collaborative and earlier work</h3>
+        </div>
+        <div class="other-project-grid">
+          {otherProjects.map((project) => (
+            <article class="project-card compact-project-card">
+              <div class="project-visual">
+                {project.data.image ? (
+                  <img src={project.data.image} alt={project.data.imageAlt ?? project.data.title} />
+                ) : (
+                  <div class={`project-art art-${project.data.art ?? 'neutral'}`} aria-hidden="true"></div>
+                )}
+              </div>
+              <div class="project-copy">
+                <p class="eyebrow">{project.data.eyebrow}</p>
+                <h3>{project.data.title}</h3>
+                <p>{project.data.description}</p>
+                <div class="keyword-list compact-keywords">
+                  {project.data.tags.map((tag) => <span class="pill">{tag}</span>)}
+                </div>
+                {project.data.href && (
+                  <a class="card-link" href={project.data.href} target="_blank" rel="noreferrer">
+                    {project.data.linkLabel ?? 'View ↗'}
+                  </a>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section anchor-section" id="publications">
+    <div class="shell">
+      <div class="section-head-simple">
+        <h2 class="section-title">Publications</h2>
+      </div>
+
+      <div class="pub-list">
+        {publications.map((pub) => (
+          <article class="pub-row">
+            <div class="pub-year">{pub.data.year}</div>
+            <div>
+              <h3 class="pub-title">{pub.data.title}</h3>
+              <p class="pub-authors">{pub.data.authors}</p>
+              <p class="pub-venue">{pub.data.venue}</p>
+            </div>
+            <div class="pub-side">
+              <div class="pub-labels">
+                {pub.data.thesis && <span class="pub-thesis">PhD Research</span>}
+                <span class="pub-tag">{pub.data.tag}</span>
+              </div>
+              <a class="external-link" href={pub.data.href} target="_blank" rel="noreferrer">Paper ↗</a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="scholar-row">
+        <a class="button secondary" href={profile.scholar} target="_blank" rel="noreferrer">Google Scholar ↗</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
