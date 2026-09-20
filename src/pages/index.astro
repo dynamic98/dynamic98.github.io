@@ -128,6 +128,7 @@ const publications = (await getCollection('publications')).sort(
             <div>
               <h3 class="pub-title">{pub.data.title}</h3>
               <p class="pub-authors">{pub.data.authors}</p>
+              {pub.data.note && <p class="pub-note">{pub.data.note}</p>}
               <p class="pub-venue">{pub.data.venue}</p>
             </div>
             <div class="pub-side">
